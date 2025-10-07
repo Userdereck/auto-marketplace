@@ -1,0 +1,14 @@
+:root {
+  --color-primary: #1e3c72;
+  --color-primary-dark: #162b50;
+  --color-secondary: #2a5298;
+  --color-accent: #e74c3c;
+  --color-accent-hover: #c0392b;
+  --color-light: #f5f7fa;
+  --color-dark: #333;
+  --color-gray: #777;
+  --color-success: #2ecc71;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --border-radius: 10px;
+  --transition: all 0.3s ease;
+}

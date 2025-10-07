@@ -1,0 +1,194 @@
+/* detail.css */
+.back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--color-secondary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.detail-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.detail-images {
+  flex: 1;
+  min-width: 300px;
+}
+
+.main-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.thumbnail-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+  border-color: var(--color-secondary);
+}
+
+.detail-info {
+  flex: 2;
+  min-width: 300px;
+}
+
+.vehicle-name {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.vehicle-meta {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-label {
+  font-size: 0.85rem;
+  color: var(--color-gray);
+}
+
+.meta-value {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.vehicle-price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+  margin: 1rem 0;
+}
+
+.auction-timer {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin: 1rem 0;
+}
+
+.description {
+  margin: 1.5rem 0;
+  line-height: 1.7;
+}
+
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.specs-table th,
+.specs-table td {
+  padding: 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.specs-table th {
+  background: #f8f9fa;
+  width: 40%;
+}
+
+.action-section {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+}
+
+.bid-form {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.bid-input {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1.1rem;
+}
+
+.action-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+
+.bid-btn {
+  background: var(--color-accent);
+  color: white;
+}
+
+.bid-btn:hover {
+  background: var(--color-accent-hover);
+}
+
+.buy-btn {
+  background: var(--color-success);
+  color: white;
+}
+
+.buy-btn:hover {
+  background: #27ae60;
+}
+
+/* Mapa simulado */
+.location-map {
+  background: #e9ecef;
+  height: 200px;
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem 0;
+  color: var(--color-gray);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .detail-container {
+    flex-direction: column;
+  }
+  
+  .thumbnail-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

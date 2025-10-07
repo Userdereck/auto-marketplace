@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Detalles del equipo en subasta o venta.">
+  <title>Detalle del Equipo — AutoBid Pro</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚜</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/detail.css"> <!-- Nuevo CSS -->
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="back-link">← Volver al catálogo</a>
+      <h1>AutoBid Pro</h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="vehicle-detail" class="detail-container">
+      <!-- Contenido dinámico -->
+      <div class="loading">Cargando detalles...</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 AutoBid Pro. Subastas de vehículos y maquinaria industrial.</p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast"></div>
+  <script type="module" src="js/detail.js"></script>
+</body>
+</html>
