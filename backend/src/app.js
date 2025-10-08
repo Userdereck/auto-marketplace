@@ -27,3 +27,13 @@ app.use('/api/vehicles', vehicleRoutes);
 app.listen(PORT, () => {
   console.log(`✅ Servidor corriendo en http://localhost:${PORT}`);
 });
+
+const corsOptions = {
+  origin: [
+    'https://tu-sitio.netlify.app',        // ← Tu dominio de Netlify
+    'http://localhost:3000',               // Para desarrollo local
+    'https://auto-marketplace-f5vb.onrender.com' // Opcional, para pruebas
+  ],
+  credentials: true
+};
+app.use(cors(corsOptions));
