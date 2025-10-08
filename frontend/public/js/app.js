@@ -3,7 +3,7 @@ import { showToast } from './utils.js';
 import { createVehicleCard } from './components.js';
 
 // URL base de la API
-const API_BASE = 'http://localhost:5000/api/vehicles';
+const API_BASE = 'https://auto-marketplace-f5vb.onrender.com/api/vehicles';
 
 // Estado global
 let allVehicles = [];
