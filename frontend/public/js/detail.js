@@ -1,7 +1,7 @@
 // frontend/public/js/detail.js
 import { showToast } from './utils.js';
 
-const API_BASE = 'http://localhost:5000/api/vehicles';
+const API_BASE = 'https://auto-marketplace-f5vb.onrender.com/api/vehicles';
 
 // Obtener ID de la URL
 const urlParams = new URLSearchParams(window.location.search);
