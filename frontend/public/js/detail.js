@@ -1,22 +1,27 @@
 // frontend/public/js/detail.js
 import { showToast } from './utils.js';
 
+// ✅ URL CORRECTA: misma que en app.js
 const API_BASE = 'https://auto-marketplace-f5vb.onrender.com/api/vehicles';
 
-// Obtener ID de la URL
 const urlParams = new URLSearchParams(window.location.search);
 const vehicleId = urlParams.get('id');
 
-if (!vehicleId) {
-  document.getElementById('vehicle-detail').innerHTML = '<p class="error">ID de vehículo no especificado.</p>';
+if (!vehicleId || isNaN(vehicleId)) {
+  document.getElementById('vehicle-detail').innerHTML = '<p class="error">ID de vehículo inválido.</p>';
 } else {
   loadVehicleDetail(vehicleId);
 }
 
 async function loadVehicleDetail(id) {
   try {
+    // ✅ URL final: https://.../api/vehicles/101
     const response = await fetch(`${API_BASE}/${id}`);
-    if (!response.ok) throw new Error('Vehículo no encontrado');
+    
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.error || 'Vehículo no encontrado');
+    }
     
     const vehicle = await response.json();
     renderVehicleDetail(vehicle);
@@ -24,7 +29,7 @@ async function loadVehicleDetail(id) {
   } catch (error) {
     console.error('Error:', error);
     document.getElementById('vehicle-detail').innerHTML = `
-      <p class="error">❌ ${error.message || 'Error al cargar el vehículo.'}</p>
+      <p class="error">❌ ${error.message}</p>
       <a href="index.html" class="btn-primary" style="display:inline-block;margin-top:1rem;">Volver al catálogo</a>
     `;
   }
@@ -36,7 +41,6 @@ function renderVehicleDetail(vehicle) {
     ? `${formatCurrency(vehicle.currentBid)} <small>(puja actual)</small>`
     : `${formatCurrency(vehicle.price)} <small>(precio fijo)</small>`;
 
-  // Simular galería (en producción, tendrías múltiples imágenes)
   const thumbnails = [
     vehicle.image,
     vehicle.image.replace('600x400', '300x200'),
@@ -145,7 +149,6 @@ function renderVehicleDetail(vehicle) {
         
         if (res.ok) {
           showToast(`¡Puja de ${formatCurrency(amount)} registrada!`, 'success');
-          // Recargar detalle para ver cambios
           loadVehicleDetail(vehicle.id);
         } else {
           showToast(data.error || 'Error al pujar.', 'error');
@@ -181,7 +184,7 @@ function startAuctionTimer(vehicle) {
   };
 
   updateTimer();
-  setInterval(updateTimer, 60000); // Actualizar cada minuto
+  setInterval(updateTimer, 60000);
 }
 
 function formatCurrency(amount) {
