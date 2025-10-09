@@ -11,8 +11,8 @@ let filteredVehicles = [];
 async function loadAllVehicles() {
   try {
     const [ventaRes, subastaRes] = await Promise.all([
-      fetch(`${API_BASE}/venta`),
-      fetch(`${API_BASE}/subasta`)
+      fetch(`${API_BASE}/type/venta`),
+      fetch(`${API_BASE}/type/subasta`)
     ]);
 
     if (!ventaRes.ok || !subastaRes.ok) {

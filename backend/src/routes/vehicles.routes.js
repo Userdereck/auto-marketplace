@@ -3,12 +3,16 @@ const express = require('express');
 const router = express.Router();
 const { getVehiclesByType, getVehicleById, getAllVehicles, placeBid } = require('../controllers/vehicles.controller');
 
-// Nueva ruta: obtener todos los vehículos
+// Ruta raíz
 router.get('/', getAllVehicles);
 
-// Rutas existentes
-router.get('/:type', getVehiclesByType);
+// Listar por tipo → /type/venta
+router.get('/type/:type', getVehiclesByType);
+
+// Obtener por ID → /123
 router.get('/:id', getVehicleById);
+
+// Pujar
 router.post('/:id/bid', placeBid);
 
 module.exports = router;
