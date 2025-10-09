@@ -1,12 +1,14 @@
 // backend/src/routes/vehicles.routes.js
 const express = require('express');
 const router = express.Router();
-const { getVehiclesByType, placeBid } = require('../controllers/vehicles.controller');
+const { getVehiclesByType, getVehicleById, getAllVehicles, placeBid } = require('../controllers/vehicles.controller');
 
-// GET /api/vehicles/:type → 'venta' o 'subasta'
+// Nueva ruta: obtener todos los vehículos
+router.get('/', getAllVehicles);
+
+// Rutas existentes
 router.get('/:type', getVehiclesByType);
-
-// POST /api/vehicles/:id/bid
+router.get('/:id', getVehicleById);
 router.post('/:id/bid', placeBid);
 
 module.exports = router;
